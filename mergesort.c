@@ -31,10 +31,10 @@ void mergeSort(Lista* vetor, int inicio, int fim) {
     if(inicio<fim-1) {
         int meio = (inicio+fim)/2;
         //Divide ao meio da esquerda
-        mergeSort(vetor, inicio, meio); //Inicio até meio-1 = esquerda
+        mergeSort(vetor, inicio, meio); //Inicio atï¿½ meio-1 = esquerda
 
         //Divide ao meio da direita
-        mergeSort(vetor, meio, fim); //Meio até fim = direita
+        mergeSort(vetor, meio, fim); //Meio atï¿½ fim = direita
 
         //Junta os meios
         mergeArray(vetor, inicio, meio, fim);

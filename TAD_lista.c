@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "TAD_lista.h" //inclui os Protótipos
+#include "TAD_lista.h" //inclui os Protï¿½tipos
 
 Lista* cria_lista()
 {
@@ -58,7 +57,7 @@ int insere_lista_final(Lista* li, Tipo_Dado dt)
     no->prox = NULL;
 
 	if ((*li) == NULL)
-	{   //lista vazia: insere início
+	{   //lista vazia: insere inï¿½cio
         no->ant = NULL;
         *li = no;
     }else
@@ -73,6 +72,7 @@ int insere_lista_final(Lista* li, Tipo_Dado dt)
     }
     return OK;
 }
+
 int insere_lista(Lista* li, Tipo_Dado dt) {
     //Insere atras do *li.
     Elem *no;
@@ -83,7 +83,7 @@ int insere_lista(Lista* li, Tipo_Dado dt) {
     no->dado = dt;
 
     if ((*li) == NULL)
-	{   //lista vazia: insere início
+	{   //lista vazia: insere inï¿½cio
         no->ant = NULL;
         no->prox = NULL;
         *li = no;
@@ -91,7 +91,7 @@ int insere_lista(Lista* li, Tipo_Dado dt) {
     else {
         no->prox = (*li);
         no->ant = (*li)->ant;
-        if((*li)->ant != NULL) //Se não estiver no comeco, o de tras aponta pra ele
+        if((*li)->ant != NULL) //Se nï¿½o estiver no comeco, o de tras aponta pra ele
             (*li)->ant->prox = no;
         (*li)->ant = no;
     }
@@ -118,14 +118,14 @@ int remove_lista(Lista* li)
     if ((*li) == NULL)//lista vazia
         return ERRO;
     Elem *no = *li;
-    if (no == NULL)//não encontrado
+    if (no == NULL)//nï¿½o encontrado
         return ERRO;
     if (no->ant == NULL)//remover o primeiro?
         *li = no->prox;
     else
         no->ant->prox = no->prox;
 
-    if (no->prox != NULL)//não é o último?
+    if (no->prox != NULL)//nï¿½o ï¿½ o ï¿½ltimo?
         no->prox->ant = no->ant;
 
     free(no);
