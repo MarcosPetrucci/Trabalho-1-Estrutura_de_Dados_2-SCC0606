@@ -12,6 +12,34 @@ Lista* cria_lista()
     return li;
 }
 
+int insere_lista(Lista* li, int x, int y) 
+{
+    //Insere logo no início da lista, já que a ordenação é feita depois
+    if (li == NULL) 
+        return ERRO;
+
+    Nodo *no;
+    no = (Nodo*) malloc(sizeof(Nodo));
+
+    no->x = x;
+    no->y = y;
+
+    if ((*li) == NULL)
+	{   //lista vazia
+        no->ant = NULL;
+        no->prox = NULL;
+        *li = no;
+	}
+    else 
+    {
+        no->prox = (*li);
+        no->ant = NULL;
+        (*li)->ant = no;
+        (*li) = no;
+    }
+    return OK;
+}
+
 Nodo* consulta_lista_pos(Lista* li, int pos)
 {
     if (li == NULL || pos < 0)
@@ -36,33 +64,37 @@ Nodo* consulta_lista_pos(Lista* li, int pos)
     }
 }
 
-int insere_lista(Lista* li, int x, int y) 
+int conta_tamanho(Lista* li)
 {
-    //Insere logo no início da lista, já que a ordenação é feita depois
-    if (li == NULL) 
+    if((*li) == NULL)  
         return ERRO;
 
+    int tam = 0;
+
     Nodo *no;
-    no = (Nodo*) malloc(sizeof(Nodo));
+    no = (*li);
 
-    no->x = x;
-    no->y = y;
-
-    if ((*li) == NULL)
-	{   //lista vazia
-        no->ant = NULL;
-        no->prox = NULL;
-        *li = no;
-	}
-    else 
+    while(no != NULL)
     {
-        no->prox = (*li);
-        no->ant = (*li)->ant;
-        if((*li)->ant != NULL) //Apesar de que não está previsto mudar o LI do primeiro nodo
-            (*li)->ant->prox = no; //Vamos ter cautela na hora de realizar esta operação
-        (*li)->ant = no;
+        tam++;
+        no = no->prox;
     }
-    return OK;
+
+    return tam;
+}
+
+void imprime_resultados(Lista* li)
+{
+    printf("Total: %d\n", conta_tamanho(li));
+
+    Nodo* no;
+    no = (*li);
+
+    while(no != NULL)
+    {
+        printf("%d %d\n", no->x, no->y);
+        no = no->prox;
+    }
 }
 
 void libera_lista(Lista* li)
