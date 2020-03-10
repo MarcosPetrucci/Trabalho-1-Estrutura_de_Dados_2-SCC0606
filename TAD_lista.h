@@ -6,6 +6,7 @@ struct elem
     int y;
 
     struct elem *prox;
+    struct elem *ant;
 };
 
 typedef struct elem* Lista;
@@ -14,7 +15,6 @@ typedef struct elem Nodo;
 Lista* cria_lista();
 
 //Posso fazer o insere_lista retornar um ponteiro para o último elemento adicionado, o guerreiro mencionou isso
-void insere_lista(Lista* li, int x, int y);
-void ordena_lista(Lista* li);
-Nodo* ultimo_nodo(Lista* li);
+int insere_lista(Lista* li, int x, int y);
+Nodo* consulta_lista_pos(Lista* li, int pos);
 void libera_lista(Lista* li);

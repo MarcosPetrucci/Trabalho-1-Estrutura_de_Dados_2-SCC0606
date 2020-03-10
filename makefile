@@ -1,6 +1,6 @@
 
 
-all: clean TAD_lista.o TAD_lista.h main.o
+all: TAD_lista.o TAD_lista.h main.o
 	@gcc TAD_lista.o main.o -o T1
 
 TAD_lista.o:
