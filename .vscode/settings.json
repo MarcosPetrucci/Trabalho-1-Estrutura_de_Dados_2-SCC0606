@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "tad_lista.h": "c",
+        "stdio.h": "c"
+    }
+}
