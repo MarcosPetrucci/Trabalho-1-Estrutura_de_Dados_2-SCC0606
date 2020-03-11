@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "TAD_lista.h" //inclui os Prototipos
+#include "TAD_lista.h"
+#define ERRO 0
+#define OK 1
 
 Lista* cria_lista()
 {
@@ -11,34 +12,49 @@ Lista* cria_lista()
     return li;
 }
 
-void libera_lista(Lista* li)
+int insere_lista(Lista* li, Tipo_Dado dt) 
 {
-    if (li != NULL)
-	{
-        Elem* no;
-        while ((*li) != NULL)
-		{
-            no = *li;
-            *li = (*li)->prox;
-            free(no);
-        }
-        free(li);
+    //Insere logo no início da lista, já que a ordenação é feita depois
+    if (li == NULL) 
+        return ERRO;
+
+    Nodo *no;
+    no = (Nodo*) malloc(sizeof(Nodo));
+
+    no->dado = dt;
+
+    if ((*li) == NULL)
+	{   //lista vazia
+        no->ant = NULL;
+        no->prox = NULL;
+        *li = no;
+	}
+    else 
+    {
+        no->prox = (*li);
+        no->ant = NULL;
+        (*li)->ant = no;
+        (*li) = no;
     }
+    return OK;
 }
 
-Lista* consulta_lista_pos(Lista* li, int pos)
+Nodo* consulta_lista_pos(Lista* li, int pos)
 {
     if (li == NULL || pos < 0)
         return NULL;
-    Lista *no = cria_lista();
-    (*no) = (*li);
+
+    Nodo *no = (Nodo*) malloc(sizeof(no));
+    no = (*li);
+    
     int i = 0;
-    while ((*no) != NULL && i < pos)
+    while (no != NULL && i < pos)
 	{
-        (*no) = (*no)->prox;
+        no = no->prox;
         i++;
     }
-    if ((*no) == NULL){
+    if (no == NULL)
+    {
         return NULL;
     }
     else
@@ -47,90 +63,50 @@ Lista* consulta_lista_pos(Lista* li, int pos)
     }
 }
 
-int insere_lista_final(Lista* li, Tipo_Dado dt)
+int conta_tamanho(Lista* li)
 {
-    Elem *no;
+    if((*li) == NULL)  
+        return ERRO;
 
-    if (li == NULL) return ERRO;
-    no = (Elem*) malloc(sizeof(Elem));
-    if (no == NULL)  return ERRO;
+    int tam = 0;
 
-    no->dado = dt;
-    no->prox = NULL;
+    Nodo *no;
+    no = (*li);
 
-	if ((*li) == NULL)
-	{   //lista vazia: insere inicio
-        no->ant = NULL;
-        *li = no;
-    }else
-	{
-        Elem *aux;
-        aux = *li;
-        while (aux->prox != NULL){
-            aux = aux->prox;
-        }
-        aux->prox = no;
-        no->ant = aux;
+    while(no != NULL)
+    {
+        tam++;
+        no = no->prox;
     }
-    return OK;
-}
-int insere_lista(Lista* li, Tipo_Dado dt) {
-    //Insere atras do *li.
-    Elem *no;
-    if (li == NULL) return ERRO;
-    no = (Elem*) malloc(sizeof(Elem));
-    if (no == NULL)  return ERRO;
 
-    no->dado = dt;
-
-    if ((*li) == NULL)
-	{   //lista vazia: insere inicio
-        no->ant = NULL;
-        no->prox = NULL;
-        *li = no;
-	}
-    else {
-        no->prox = (*li);
-        no->ant = (*li)->ant;
-        if((*li)->ant != NULL) //Se nao estiver no comeco, o de tras aponta pra ele
-            (*li)->ant->prox = no;
-        (*li)->ant = no;
-    }
-    return OK;
+    return tam;
 }
 
 void imprime_lista(Lista* li)
 {
-    Elem* no = *li;
+    printf("Total: %d\n", conta_tamanho(li));
 
-    if (li == NULL)
-        return;
-    while (no != NULL)
+    Nodo* no;
+    no = (*li);
+
+    while(no != NULL)
     {
-        //printf("Dado: %5d # Ant: %p - Dado: %p - Prox: %p\n",no->dado,no->ant,no,no->prox);
-        printf("Dado => x:%d y:%d\n",no->dado.x,no->dado.y);
+        printf("%d %d\n", no->dado.x, no->dado.y);
         no = no->prox;
     }
-    printf("-------------- FIM LISTA -----------------\n");
 }
 
-int remove_lista(Lista* li)
-{   //TERMINAR
-    if (li == NULL)
-        return ERRO;
-    if ((*li) == NULL)//lista vazia
-        return ERRO;
-    Elem *no = *li;
-    if (no == NULL)//n�o encontrado
-        return ERRO;
-    if (no->ant == NULL)//remover o primeiro?
-        *li = no->prox;
-    else
-        no->ant->prox = no->prox;
-
-    if (no->prox != NULL)//nao eh o ultimo?
-        no->prox->ant = no->ant;
-
-    free(no);
-    return OK;
+void libera_lista(Lista* li)
+{
+    if (li != NULL)
+	{
+        Nodo* no;
+        while ((*li) != NULL)
+		{
+            no = *li;
+            *li = (*li)->prox;
+            free(no);
+        }
+        free(li);
+    }
 }
