@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "TAD_lista.h" //inclui os Prot�tipos
+#include "TAD_lista.h" //inclui os Prototipos
 
 Lista* cria_lista()
 {
@@ -46,6 +46,7 @@ Lista* consulta_lista_pos(Lista* li, int pos)
         return no;
     }
 }
+
 int insere_lista_final(Lista* li, Tipo_Dado dt)
 {
     Elem *no;
@@ -58,7 +59,7 @@ int insere_lista_final(Lista* li, Tipo_Dado dt)
     no->prox = NULL;
 
 	if ((*li) == NULL)
-	{   //lista vazia: insere in�cio
+	{   //lista vazia: insere inicio
         no->ant = NULL;
         *li = no;
     }else
@@ -83,7 +84,7 @@ int insere_lista(Lista* li, Tipo_Dado dt) {
     no->dado = dt;
 
     if ((*li) == NULL)
-	{   //lista vazia: insere in�cio
+	{   //lista vazia: insere inicio
         no->ant = NULL;
         no->prox = NULL;
         *li = no;
@@ -91,7 +92,7 @@ int insere_lista(Lista* li, Tipo_Dado dt) {
     else {
         no->prox = (*li);
         no->ant = (*li)->ant;
-        if((*li)->ant != NULL) //Se n�o estiver no comeco, o de tras aponta pra ele
+        if((*li)->ant != NULL) //Se nao estiver no comeco, o de tras aponta pra ele
             (*li)->ant->prox = no;
         (*li)->ant = no;
     }
@@ -127,7 +128,7 @@ int remove_lista(Lista* li)
     else
         no->ant->prox = no->prox;
 
-    if (no->prox != NULL)//n�o � o �ltimo?
+    if (no->prox != NULL)//nao eh o ultimo?
         no->prox->ant = no->ant;
 
     free(no);

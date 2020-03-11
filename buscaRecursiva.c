@@ -36,11 +36,9 @@ void buscaRecursiva(int** M, int x0, int y0, int xSize, int ySize, int ref){
     }
 
     if(M[x0][y0] == ref){
-        printf("%d %d\n",x0,y0);
-        //M[x0][y0] = !ref;
-
+        
         // troca do valor da posição já visitada da matriz para a recursão não entrar em loop:
-        M[x0][y0] = 8;
+        M[x0][y0] = !ref;
 
         Tipo_Dado pos;
         pos.x = x0;
