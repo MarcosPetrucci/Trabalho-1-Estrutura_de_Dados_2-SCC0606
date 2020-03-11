@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//#include "TAD_lista.h"
-#include "buscaRecursiva.h"
+#include "prototipos.h"
 
 const int dir[8][2] = {{-1,0},  // sobe
                        {-1,1},  // sobre-direita (diagonal)

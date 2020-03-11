@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "mergesort.h"
+#include "prototipos.h"
 
 Lista* cria_lista()
 {
@@ -109,7 +109,7 @@ void imprime_lista(Lista* li)
     while (no != NULL)
     {
         //printf("Dado: %5d # Ant: %p - Dado: %p - Prox: %p\n",no->dado,no->ant,no,no->prox);
-        printf("Dado => x:%d y:%d\n",no->dado.x,no->dado.y);
+        printf("%d %d\n",no->dado.x,no->dado.y);
         no = no->prox;
     }
 }

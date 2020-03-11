@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "mergesort.h"
-
-
+#include "prototipos.h"
 
 void mergeArray(Lista* vetor, int inicio, int meio, int fim) {
     Elem *vetor_aux = (Elem*) malloc((fim-inicio)*sizeof(Elem));
