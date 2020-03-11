@@ -14,12 +14,16 @@ const int dir[8][2] = {{-1,0},  // sobe
                        {-1,-1}};// sobe-esquerda
 
 Lista* li;
+int modificado;
 
-Lista* floodFill(int** M, int x0, int y0, int xSize, int ySize){
+Lista* floodFill(int** M, int x0, int y0, int xSize, int ySize, int* count){
 
     li = cria_lista();
+    modificado = 0;
 
     buscaRecursiva(M,x0,y0,xSize,ySize,M[x0][y0]);
+
+    *count = modificado;
 
     return li;
 }
@@ -39,6 +43,7 @@ void buscaRecursiva(int** M, int x0, int y0, int xSize, int ySize, int ref){
         
         // troca do valor da posição já visitada da matriz para a recursão não entrar em loop:
         M[x0][y0] = !ref;
+        modificado++;
 
         Tipo_Dado pos;
         pos.x = x0;

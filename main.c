@@ -8,10 +8,17 @@
 
 #define ARRAYSIZE 10
 
-#define L 5
-#define C 5
+#define L 8
+#define C 10
 
-int matrix[5][5] = {{0,0,1,0,0},{0,1,0,0,0},{0,1,1,0,0},{0,0,0,0,0},{0,0,0,1,1}};
+int matrix[L][C] = {{0,0,0,0,0,0,0,0,0,0},
+                    {0,0,1,1,0,0,0,0,0,0},
+                    {0,0,0,0,1,1,0,0,0,0},
+                    {0,0,0,0,1,1,0,0,0,0},
+                    {0,0,1,1,1,0,0,0,0,0},
+                    {0,0,0,0,1,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0},
+                    {0,0,1,1,0,0,0,0,0,0}};
 
 
 int main()
@@ -31,8 +38,9 @@ int main()
 
 /****************** so para testar ********************/
     int i,j;
+    // POSICAO INICIAL
     int x0 = 1;
-    int y0 = 1;
+    int y0 = 2;
 
     int **M;
     M = (int**)malloc(L*sizeof(int*));
@@ -56,8 +64,12 @@ int main()
 /*******************************************************/
 
     Lista *li;
+    int count;
 
-    li = floodFill(M,x0,y0,L,C); // PARAMETROS: matriz, x inicial, y inicial, numero de lin, numero de col
+    li = floodFill(M,x0,y0,L,C,&count); // PARAMETROS: matriz, x inicial, y inicial, numero de lin, numero de col,
+                                        // contador de nos modificados
+    
+    printf("Numero de posicoes conectadas: %d\n",count);
 
     imprime_lista(li);
 
