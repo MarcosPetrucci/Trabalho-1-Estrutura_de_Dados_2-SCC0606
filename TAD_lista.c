@@ -82,7 +82,7 @@ int conta_tamanho(Lista* li)
     return tam;
 }
 
-void imprime_resultados(Lista* li)
+void imprime_lista(Lista* li)
 {
     printf("Total: %d\n", conta_tamanho(li));
 

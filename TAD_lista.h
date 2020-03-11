@@ -21,5 +21,5 @@ Lista* cria_lista();
 int insere_lista(Lista* li, Tipo_Dado dt);
 Nodo* consulta_lista_pos(Lista* li, int pos);
 int conta_tamanho(Lista* li);
-void imprime_resultados(Lista* li);
+void imprime_lista(Lista* li);
 void libera_lista(Lista* li);
