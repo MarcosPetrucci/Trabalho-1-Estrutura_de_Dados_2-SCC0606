@@ -12,7 +12,7 @@ Lista* cria_lista()
     return li;
 }
 
-int insere_lista(Lista* li, int x, int y) 
+int insere_lista(Lista* li, Tipo_Dado dt) 
 {
     //Insere logo no início da lista, já que a ordenação é feita depois
     if (li == NULL) 
@@ -21,8 +21,7 @@ int insere_lista(Lista* li, int x, int y)
     Nodo *no;
     no = (Nodo*) malloc(sizeof(Nodo));
 
-    no->x = x;
-    no->y = y;
+    no->dado = dt;
 
     if ((*li) == NULL)
 	{   //lista vazia
@@ -92,7 +91,7 @@ void imprime_resultados(Lista* li)
 
     while(no != NULL)
     {
-        printf("%d %d\n", no->x, no->y);
+        printf("%d %d\n", no->dado.x, no->dado.y);
         no = no->prox;
     }
 }
