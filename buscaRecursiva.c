@@ -14,7 +14,6 @@ const int dir[8][2] = {{-1,0},  // sobe
                        {-1,-1}};// sobe-esquerda
 
 Lista* li;
-int modificado;
 
 Lista* floodFill(int** M, int x0, int y0, int xSize, int ySize, int* count){
 

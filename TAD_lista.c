@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "TAD_lista.h"
+#include "buscaRecursiva.h"
 #define ERRO 0
 #define OK 1
 
@@ -63,28 +64,9 @@ Nodo* consulta_lista_pos(Lista* li, int pos)
     }
 }
 
-int conta_tamanho(Lista* li)
-{
-    if((*li) == NULL)  
-        return ERRO;
-
-    int tam = 0;
-
-    Nodo *no;
-    no = (*li);
-
-    while(no != NULL)
-    {
-        tam++;
-        no = no->prox;
-    }
-
-    return tam;
-}
-
 void imprime_lista(Lista* li)
 {
-    printf("Total: %d\n", conta_tamanho(li));
+    printf("Total: %d\n", modificado);
 
     Nodo* no;
     no = (*li);
