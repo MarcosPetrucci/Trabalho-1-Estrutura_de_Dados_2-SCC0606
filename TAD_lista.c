@@ -17,13 +17,13 @@ Nodo* consulta_lista_pos(Lista* li, int pos)
     if (li == NULL || pos < 0)
         return NULL;
 
-    Nodo *no = (Nodo*) malloc(sizeof(no));
+    Nodo* no;
     no = (*li);
-    
+
     int i = 0;
     while (no != NULL && i < pos)
 	{
-        no = no->prox;
+        no = no->ant;
         i++;
     }
     if (no == NULL)
@@ -36,10 +36,10 @@ Nodo* consulta_lista_pos(Lista* li, int pos)
     }
 }
 
-int insere_lista(Lista* li, int x, int y) 
+int insere_lista(Lista* li, int x, int y)
 {
     //Insere logo no início da lista, já que a ordenação é feita depois
-    if (li == NULL) 
+    if (li == NULL)
         return ERRO;
 
     Nodo *no;
@@ -54,7 +54,7 @@ int insere_lista(Lista* li, int x, int y)
         no->prox = NULL;
         *li = no;
 	}
-    else 
+    else
     {
         no->prox = (*li);
         no->ant = (*li)->ant;
