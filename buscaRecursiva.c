@@ -49,7 +49,7 @@ void buscaRecursiva(int** M, int x0, int y0, int xSize, int ySize, int ref){
         pos.x = x0;
         pos.y = y0;
 
-        insere_lista_final(li,pos);
+        insere_lista(li,pos);
 
         // chamada recursiva para cada uma das 8 posicoes vizinhas:
         for(i=0; i<8; i++){ 
