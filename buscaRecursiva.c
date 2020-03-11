@@ -3,6 +3,8 @@
 
 #include "prototipos.h"
 
+// ------ Algoritmo recursivo de Flood Fill ------ //
+
 const int dir[8][2] = {{-1,0},  // sobe
                        {-1,1},  // sobre-direita (diagonal)
                        {0,1},   // direita
@@ -12,31 +14,30 @@ const int dir[8][2] = {{-1,0},  // sobe
                        {0,-1},  // esquerda
                        {-1,-1}};// sobe-esquerda
 
-Lista* li;
+Lista* li2;
 int modificado;
 
 Lista* floodFill(int** M, int x0, int y0, int xSize, int ySize, int* count){
 
-    li = cria_lista();
+    li2 = cria_lista();
     modificado = 0;
 
     buscaRecursiva(M,x0,y0,xSize,ySize,M[x0][y0]);
 
     *count = modificado;
 
-    return li;
+    return li2;
 }
 
 void buscaRecursiva(int** M, int x0, int y0, int xSize, int ySize, int ref){
 
     int i;
 
-    if(x0 < 0 || y0 < 0){
+    if(x0 < 0 || y0 < 0)
         return;
-    }
-    if(x0 >= xSize || y0 >= ySize){
+
+    if(x0 >= xSize || y0 >= ySize)
         return;
-    }
 
     if(M[x0][y0] == ref){
 
@@ -48,10 +49,10 @@ void buscaRecursiva(int** M, int x0, int y0, int xSize, int ySize, int ref){
         pos.x = x0;
         pos.y = y0;
 
-        insere_lista_final(li,pos);
+        insere_lista(li2,pos);
 
         // chamada recursiva para cada uma das 8 posicoes vizinhas:
-        for(i=0; i<8; i++){
+        for(i = 0; i < 8; i++){
             buscaRecursiva(M, x0+dir[i][0], y0+dir[i][1], xSize, ySize, ref);
         }
     }

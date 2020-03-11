@@ -50,29 +50,13 @@ int main()
 /*******************************************************/
 
     Lista *li;
-    int count;
+    int count;  //Contador de nodos modificados
 
     li = floodFill(M,x0,y0,L,C,&count); // PARAMETROS: matriz, x inicial, y inicial, numero de lin, numero de col,
-                                        // contador de nos modificados
-
-    printf("Total: %d\n",count);
 
     mergeSort(li, 0, count);
-    imprime_lista(li);
-
-/****************** so para testar ********************
-
-    printf("\n\n");
-    for(i=0; i<L; i++){
-        for(j=0; j<C; j++){
-            printf("%d ",M[i][j]);
-        }
-        printf("\n");
-    }
-
-*******************************************************/
-
-
+    imprime_lista(li, count);
+    
     libera_lista(li);
     return 0;
 }

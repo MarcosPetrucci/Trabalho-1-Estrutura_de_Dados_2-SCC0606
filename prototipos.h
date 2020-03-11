@@ -17,33 +17,28 @@ typedef struct{
 
 //Definicao do tipo lista
 struct elemento{
-    struct elemento *ant;
+
     Tipo_Dado dado;
+    struct elemento *ant;
     struct elemento *prox;
 };
 
-typedef struct elemento Elem;
+typedef struct elemento Nodo;
 
 typedef struct elemento* Lista;
 
-Lista* cria_lista();
-void libera_lista(Lista* li);
-Elem* consulta_lista_pos(Lista* li, int pos);
-int insere_lista_final(Lista* li, Tipo_Dado dt);
-int insere_lista(Lista* li, Tipo_Dado dt);
-int tamanho_lista(Lista* li);
-void imprime_lista(Lista* li);
-int remove_lista(Lista* li);
-
-
+Lista* cria_lista();                          //Cria (aloca) o início da  lista
+int insere_lista(Lista* li, Tipo_Dado dt);    //Insere, no começo da lista, um novo nodo
+Nodo* consulta_lista_pos(Lista* li, int pos); //Consulta a posição de um determinado nodo na lista
+void imprime_lista(Lista* li, int count);     //Imprime os resultados obtidos, total e nodos modificados
+void libera_lista(Lista* li);                 //Libera, adequadamente, os nodos dinâmicamente alocados
 //------------------------------- MERGE SORT -------------------------------//
 
-void mergeSort(Lista* vetor, int inicio, int fim);
-void mergeArray(Lista* vetor, int inicio, int meio, int fim);
+void mergeSort(Lista* vetor, int inicio, int fim); //Faz as sucessivas divisões do merge sort
+void mergeArray(Lista* vetor, int inicio, int meio, int fim); //Realiza a ordenação nos pequenos arrays derivados
 
 
 //----------------------------- BUSCA RECURSIVA -----------------------------//
 
-Lista* floodFill(int **M, int x0, int y0, int xSize, int ySize, int* count);
-void buscaRecursiva(int **M, int x0, int y0, int xSize, int ySize, int ref);
-
+Lista* floodFill(int **M, int x0, int y0, int xSize, int ySize, int* count); //Inicia o algoritmo de flood fill
+void buscaRecursiva(int **M, int x0, int y0, int xSize, int ySize, int ref); //Realiza a busca recursiva na matriz dada

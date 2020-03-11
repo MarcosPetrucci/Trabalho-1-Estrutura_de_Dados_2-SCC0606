@@ -11,74 +11,13 @@ Lista* cria_lista()
     return li;
 }
 
-void libera_lista(Lista* li)
+int insere_lista(Lista* li, Tipo_Dado dt) 
 {
-    if (li != NULL)
-	{
-        Elem* no;
-        while ((*li) != NULL)
-		{
-            no = *li;
-            *li = (*li)->prox;
-            free(no);
-        }
-        free(li);
-    }
-}
-
-Elem* consulta_lista_pos(Lista* li, int pos)
-{
-    if (li == NULL || pos < 0)
-        return NULL;
-    Elem* no;
-    no = (*li);
-    int i = 0;
-    while (no != NULL && i < pos)
-	{
-        no = no->prox;
-        i++;
-    }
-    if (no == NULL){
-        return NULL;
-    }
-    else
-	{
-        return no;
-    }
-}
-
-int insere_lista_final(Lista* li, Tipo_Dado dt)
-{
-    Elem *no;
-
-    if (li == NULL) return ERRO;
-    no = (Elem*) malloc(sizeof(Elem));
-    if (no == NULL)  return ERRO;
-
-    no->dado = dt;
-    no->prox = NULL;
-
-	if ((*li) == NULL)
-	{   //lista vazia: insere inicio
-        no->ant = NULL;
-        *li = no;
-    }else
-	{
-        Elem *aux;
-        aux = *li;
-        while (aux->prox != NULL){
-            aux = aux->prox;
-        }
-        aux->prox = no;
-        no->ant = aux;
-    }
-    return OK;
-}
-int insere_lista(Lista* li, Tipo_Dado dt) {
     //Insere atras do *li.
-    Elem *no;
+    Nodo *no;
     if (li == NULL) return ERRO;
-    no = (Elem*) malloc(sizeof(Elem));
+    
+    no = (Nodo*) malloc(sizeof(Nodo));
     if (no == NULL)  return ERRO;
 
     no->dado = dt;
@@ -90,26 +29,63 @@ int insere_lista(Lista* li, Tipo_Dado dt) {
         *li = no;
 	}
 
-    else {
+    else 
+    {
         no->prox = (*li);
         no->ant = (*li)->ant;
-        if((*li)->ant != NULL) //Se nao estiver no comeco, o de tras aponta pra ele
-            (*li)->ant->prox = no;
         (*li)->ant = no;
+        *li = no;        
     }
     return OK;
 }
 
-void imprime_lista(Lista* li)
+Nodo* consulta_lista_pos(Lista* li, int pos)
 {
-    Elem* no = *li;
+    if (li == NULL || pos < 0)
+        return NULL;
+    
+    Nodo* no;
+    no = (*li);
+
+    int i = 0;
+    while (no != NULL && i < pos)
+	{
+        no = no->prox;
+        i++;
+    }
+    
+    if (no == NULL)
+        return NULL;
+    else
+        return no;
+}
+
+void imprime_lista(Lista* li, int count)
+{
+    Nodo* no = *li;
 
     if (li == NULL)
         return;
+
+    printf("Total: %d\n",count);
     while (no != NULL)
     {
-        //printf("Dado: %5d # Ant: %p - Dado: %p - Prox: %p\n",no->dado,no->ant,no,no->prox);
         printf("%d %d\n",no->dado.x,no->dado.y);
         no = no->prox;
+    }
+}
+
+void libera_lista(Lista* li)
+{
+    if (li != NULL)
+	{
+        Nodo* no;
+        while ((*li) != NULL)
+		{
+            no = *li;
+            *li = (*li)->prox;
+            free(no);
+        }
+        free(li);
     }
 }
