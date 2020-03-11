@@ -3,9 +3,11 @@
 
 #include "mergesort.h"
 
+
+
 void mergeArray(Lista* vetor, int inicio, int meio, int fim) {
-    Nodo *vetor_aux = (Nodo*) malloc((fim-inicio)*sizeof(Nodo));
-    Nodo *noEsq, *noDir;
+    Elem *vetor_aux = (Elem*) malloc((fim-inicio)*sizeof(Elem));
+    Elem *noEsq, *noDir;
     int esq = inicio, dir = meio;
     int i = 0;
     noEsq = consulta_lista_pos(vetor, esq);
@@ -13,7 +15,7 @@ void mergeArray(Lista* vetor, int inicio, int meio, int fim) {
 
     //Vai recolocando ordenadamente no vetor_aux
     for(i=0; esq < meio && dir < fim; i++) {
-        if(noEsq->x < noDir->x || (noEsq->x == noDir->x && noEsq->y <= noDir->y)) {
+        if(noEsq->dado.x < noDir->dado.x || (noEsq->dado.x == noDir->dado.x && noEsq->dado.y <= noDir->dado.y)) {
             vetor_aux[i] = *noEsq;
             esq++;
             noEsq = noEsq->prox;
@@ -35,11 +37,11 @@ void mergeArray(Lista* vetor, int inicio, int meio, int fim) {
     }
 
     //Aplica as mudancas do vetor_aux para o vetor principal
-    Nodo* no;
+    Elem* no;
     for (i = inicio; i < fim; i++){
         no = consulta_lista_pos(vetor, i);
-        no->x = vetor_aux[i-inicio].x;
-        no->y = vetor_aux[i-inicio].y;
+        no->dado.x = vetor_aux[i-inicio].dado.x;
+        no->dado.y = vetor_aux[i-inicio].dado.y;
     }
 
     free(vetor_aux);

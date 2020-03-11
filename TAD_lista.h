@@ -1,20 +1,33 @@
-#include<stdio.h>
+//Arquivo LDED.h - Lista Dinamica Encadeada Dupla
 
-struct elem
-{
+#define FALSO      0
+#define VERDADEIRO 1
+
+#define OK         1
+#define ERRO       0
+
+typedef struct{
     int x;
     int y;
+}Tipo_Dado;
 
-    struct elem *prox;
-    struct elem *ant;
+//Definicao do tipo lista
+struct elemento{
+    struct elemento *ant;
+    Tipo_Dado dado;
+    struct elemento *prox;
 };
 
-typedef struct elem* Lista;
-typedef struct elem Nodo;
+typedef struct elemento Elem;
+
+typedef struct elemento* Lista;
 
 Lista* cria_lista();
-
-//Posso fazer o insere_lista retornar um ponteiro para o último elemento adicionado, o guerreiro mencionou isso
-int insere_lista(Lista* li, int x, int y);
-Nodo* consulta_lista_pos(Lista* li, int pos);
 void libera_lista(Lista* li);
+Elem* consulta_lista_pos(Lista* li, int pos);
+int insere_lista_final(Lista* li, Tipo_Dado dt);
+int insere_lista(Lista* li, Tipo_Dado dt);
+int tamanho_lista(Lista* li);
+void imprime_lista(Lista* li);
+int remove_lista(Lista* li);
+

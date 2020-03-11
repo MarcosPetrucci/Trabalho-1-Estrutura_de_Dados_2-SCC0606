@@ -1,23 +1,39 @@
 # depslib dependency file v1.0
-1583889423 source:c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\main.c
+1583892119 source:c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
+	"mergesort.h"
+	"buscaRecursiva.h"
+
+1583891878 c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\mergesort.h
 	"TAD_lista.h"
 
-1583870089 c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\mergesort.h
-	"TAD_lista.h"
+1583891305 c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\tad_lista.h
 
-1583889450 c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\tad_lista.h
-	<stdio.h>
-
-1583889360 source:c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\tad_lista.c
-	<stdio.h>
-	<stdlib.h>
-	"TAD_lista.h"
-
-1583889302 source:c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\mergesort.c
+1583891789 source:c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\tad_lista.c
 	<stdio.h>
 	<stdlib.h>
 	"mergesort.h"
+
+1583891910 source:c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\mergesort.c
+	<stdio.h>
+	<stdlib.h>
+	"mergesort.h"
+
+1583891606 source:c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\buscarecursiva.c
+	<stdio.h>
+	<stdlib.h>
+	"buscaRecursiva.h"
+
+1583891878 c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\buscarecursiva.h
+	"TAD_lista.h"
+
+1583891415 c:\users\guerreiro\documents\c_projects\trabalho-1-scc0606\prototipos.h
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	"TAD_lista.h"
+	"mergesort.h"
+	"buscaRecursiva.h"
 
