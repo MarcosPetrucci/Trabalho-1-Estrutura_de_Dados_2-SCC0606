@@ -7,7 +7,7 @@ CFLAGS=-I. -g -Wall
 DEPS= prototipos.h	
 
 #OBJ= buscaRecursiva.o TAD_lista.o mergesort.o main.o 
-OBJ= TAD_lista.o buscaRecursiva.o mergesort.o main.o 
+OBJ= TAD_lista.o buscaRecursiva.o mergesort.o manipularFiles.o main.o 
 
 
 # rule for files ending in .o (.o file depends upon the .c version of the file and the .h files in the DEPS macro)
