@@ -42,3 +42,6 @@ void mergeArray(Lista* vetor, int inicio, int meio, int fim); //Realiza a ordena
 
 Lista* floodFill(int **M, int x0, int y0, int xSize, int ySize, int* count); //Inicia o algoritmo de flood fill
 void buscaRecursiva(int **M, int x0, int y0, int xSize, int ySize, int ref); //Realiza a busca recursiva na matriz dada
+
+//------------------------- MANIPULAR FILES --------------------------------//
+int** receber_matriz(int* L, int* C, int* x0, int* y0);

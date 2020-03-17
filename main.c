@@ -6,39 +6,18 @@
 
 #define ARRAYSIZE 10
 
-#define L 8
-#define C 10
-
-int matrix[L][C] = {{0,0,0,0,0,0,0,0,0,0},
-                    {0,0,1,1,0,0,0,0,0,0},
-                    {0,0,0,0,1,1,0,0,0,0},
-                    {0,0,0,0,1,1,0,0,0,0},
-                    {0,0,1,1,1,0,0,0,0,0},
-                    {0,0,0,0,1,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,0},
-                    {0,0,1,1,0,0,0,0,0,0}};
-
-
 int main()
 {
+    int** M;
+    int L, C, x0, y0;
 
-/****************** so para testar ********************/
+    M = receber_matriz(&L, &C, &x0, &y0); //PARAMETROS: numero de lin, numero de col, x inicial, y inicial
+
+/***************** so para testar *********************************************************/
     int i,j;
-    // POSICAO INICIAL
-    int x0 = 1;
-    int y0 = 2;
 
-    int **M;
-    M = (int**)malloc(L*sizeof(int*));
-    for(i=0; i<L; i++)
-        M[i] = (int*)malloc(C*sizeof(int));
+    printf("L = %d\n\nC = %d\n\nx0 = %d\n\ny0 = %d\n\n", L, C, x0, y0); //Imprime L, C, x0 e y0
 
-    for(i=0; i<L; i++){
-        for(j=0; j<C; j++){
-            //M[i][j] = rand()%2;
-            M[i][j] = matrix[i][j];
-        }
-    }
     for(i=0; i<L; i++){
         for(j=0; j<C; j++){
             printf("%d ",M[i][j]);
@@ -47,7 +26,7 @@ int main()
     }
     printf("\n");
 
-/*******************************************************/
+/*******************************************************************************************/
 
     Lista *li;
     int count;  //Contador de nodos modificados
@@ -56,7 +35,8 @@ int main()
 
     mergeSort(li, 0, count);
     imprime_lista(li, count);
-    
+
     libera_lista(li);
+
     return 0;
 }
