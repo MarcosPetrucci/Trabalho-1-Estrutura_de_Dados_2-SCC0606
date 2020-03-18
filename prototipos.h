@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
+
 //------------------------ LISTA DINAMICA ENCADEADA DUPLA ------------------------//
 
 #define FALSO      0
@@ -45,3 +46,5 @@ void buscaRecursiva(int **M, int x0, int y0, int xSize, int ySize, int ref); //R
 
 //------------------------- MANIPULAR FILES --------------------------------//
 int** receber_matriz(int* L, int* C, int* x0, int* y0);
+void salvar_matriz(int** M, int L, int C);
+void salvar_contagem(int total, int busca, int merge);
