@@ -20,7 +20,6 @@ int modificado;
 Lista* floodFill(int** M, int x0, int y0, int xSize, int ySize, int* count){
 
     extern int contagem;
-    extern int contagemBusca;
 
     contagem+=16; // atribuicao de valores a matriz dir[8][2]
 
@@ -29,11 +28,7 @@ Lista* floodFill(int** M, int x0, int y0, int xSize, int ySize, int* count){
     modificado = 0;
 
     contagem++;
-    contagemBusca = contagem;
-
     buscaRecursiva(M,x0,y0,xSize,ySize,M[x0][y0]);
-
-    contagemBusca = contagem - contagemBusca;
 
     contagem++;
     *count = modificado;

@@ -9,7 +9,7 @@ void mergeArray(Lista* vetor, int inicio, int meio, int fim)
 {
     extern int contagem;
 
-    contagem++;
+    contagem+=2;
     Nodo *vetor_aux = (Nodo*) malloc((fim-inicio)*sizeof(Nodo));
     Nodo *noEsq, *noDir;
 

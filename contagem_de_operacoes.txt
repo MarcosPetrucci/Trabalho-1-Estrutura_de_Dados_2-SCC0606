@@ -1,1 +1,44 @@
 
+Contagem das operacoes para a seguinte matriz de entrada:
+0 0 0 0 0 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 
+0 0 0 0 1 1 0 0 0 0 
+0 0 0 0 1 1 0 0 0 0 
+0 0 1 1 1 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 
+Total de operacoes: 3755
+Operacoes devido a busca recursiva: 929
+Operacoes devido ao merge sort: 2320
+
+Contagem das operacoes para a seguinte matriz de entrada:
+0 0 0 1 0 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 
+0 0 0 0 1 1 0 0 0 0 
+0 0 0 0 1 1 0 0 0 0 
+0 0 1 1 1 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 1 
+Total de operacoes: 6947
+Operacoes devido a busca recursiva: 1370
+Operacoes devido ao merge sort: 4936
+
+Contagem das operacoes para a seguinte matriz de entrada:
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+Total de operacoes: 359916
+Operacoes devido a busca recursiva: 10661
+Operacoes devido ao merge sort: 347778

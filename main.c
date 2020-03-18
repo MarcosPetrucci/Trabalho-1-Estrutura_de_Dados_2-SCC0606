@@ -23,7 +23,7 @@ int main()
     M = receber_matriz(&L, &C, &x0, &y0); //PARAMETROS: numero de lin, numero de col, x inicial, y inicial
 
     // as operacoes relativas ao envio da contagem de operacoes do algoritmo
-    // para um arquivo a parte nao serao consideradas na contagem
+    // para um arquivo separado nao serao consideradas na contagem
     salvar_matriz(M,L,C);
 
     contagem++;
@@ -50,7 +50,9 @@ int main()
     int count;  //Contador de nodos modificados
 
     contagem += 2;
+    contagemBusca = contagem;
     li = floodFill(M,x0,y0,L,C,&count); // PARAMETROS: matriz, x inicial, y inicial, numero de lin, numero de col,
+    contagemBusca = contagem - contagemBusca;
 
     contagem++;
     contagemMerge = contagem;
