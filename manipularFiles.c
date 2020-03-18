@@ -21,7 +21,7 @@ int** receber_matriz(int* L, int* C, int* x0, int* y0)
 
     if(arquivo == NULL)
     {
-        printf("\nERRO NA CRIACAO DO ARQUIVO\n");
+        printf("\nERRO NA ABERTURA DO ARQUIVO\n");
         return 0;
     }
 
