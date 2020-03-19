@@ -62,7 +62,10 @@ void mergeArray(Lista* vetor, int inicio, int meio, int fim)
     for (i = inicio; i < fim; i++){
         contagem+=7;
 
-        no = consulta_lista_pos(vetor, i);
+        if(i == inicio)
+            no = consulta_lista_pos(vetor, i);
+        else
+            no = no->prox;
         no->dado.x = vetor_aux[i-inicio].dado.x;
         no->dado.y = vetor_aux[i-inicio].dado.y;
     }

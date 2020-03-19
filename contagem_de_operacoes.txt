@@ -42,3 +42,37 @@ Contagem das operacoes para a seguinte matriz de entrada:
 Total de operacoes: 359916
 Operacoes devido a busca recursiva: 10661
 Operacoes devido ao merge sort: 347778
+
+Contagem das operacoes para a seguinte matriz de entrada:
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+Total de operacoes: 359916
+Operacoes devido a busca recursiva: 10661
+Operacoes devido ao merge sort: 347778
+
+// Depois de modificar mergesort.c:
+
+Contagem das operacoes para a seguinte matriz de entrada:
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+Total de operacoes: 136611
+Operacoes devido a busca recursiva: 10661
+Operacoes devido ao merge sort: 124473
