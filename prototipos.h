@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
+
 //------------------------ LISTA DINAMICA ENCADEADA DUPLA ------------------------//
 
 #define FALSO      0
@@ -44,4 +45,6 @@ Lista* floodFill(int **M, int x0, int y0, int xSize, int ySize, int* count); //I
 void buscaRecursiva(int **M, int x0, int y0, int xSize, int ySize, int ref); //Realiza a busca recursiva na matriz dada
 
 //------------------------- MANIPULAR FILES --------------------------------//
-int** receber_matriz(int* L, int* C, int* x0, int* y0);
+int** receber_matriz(int* L, int* C, int* x0, int* y0); // Recebe dados de entrada de um arquivo .txt
+void salvar_matriz(int** M, int L, int C);  // Salva a matriz de entrada em um arquivo .txt
+void salvar_contagem(int total, int busca, int merge); // Salva a contagem de operacoes em um arquivo .txt
