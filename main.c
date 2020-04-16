@@ -56,7 +56,7 @@ int main()
 
     contagem++;
     contagemMerge = contagem;
-    mergeSort(li, 0, count);
+    mergeSort(0, (*li), count);
     contagemMerge = contagem - contagemMerge;
 
     contagem++;

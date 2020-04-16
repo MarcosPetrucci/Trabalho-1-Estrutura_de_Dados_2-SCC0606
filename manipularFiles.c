@@ -38,6 +38,7 @@ int** receber_matriz(int* L, int* C, int* x0, int* y0)
     fscanf(arquivo, "%d %d", &linhas, &colunas);
 
     //Criacao da matriz
+    contagem+=2;
     int i = 0;
     int j = 0;
     int** matriz;

@@ -5,7 +5,7 @@
 
 // ------ Algoritmo de ordenação recursivo merge sort --------//
 
-void mergeArray(Lista* vetor, int inicio, int meio, int fim) 
+void mergeArray(int inicio, Nodo* pinicio, int meio, Nodo* pmeio, int fim) 
 {
     extern int contagem;
 
@@ -18,8 +18,8 @@ void mergeArray(Lista* vetor, int inicio, int meio, int fim)
     int i = 0;
 
     contagem+=4;
-    noEsq = consulta_lista_pos(vetor, esq);
-    noDir = consulta_lista_pos(vetor, dir);
+    noEsq = pinicio;
+    noDir = pmeio;
 
     //Vai recolocando ordenadamente no vetor_aux
 
@@ -58,14 +58,15 @@ void mergeArray(Lista* vetor, int inicio, int meio, int fim)
 
     //Aplica as mudancas do vetor_aux para o vetor principal
     Nodo* no;
-    contagem+=2;
+    contagem+=3;
     for (i = inicio; i < fim; i++){
         contagem+=7;
 
         if(i == inicio)
-            no = consulta_lista_pos(vetor, i);
+            no = pinicio;
         else
             no = no->prox;
+
         no->dado.x = vetor_aux[i-inicio].dado.x;
         no->dado.y = vetor_aux[i-inicio].dado.y;
     }
@@ -74,25 +75,27 @@ void mergeArray(Lista* vetor, int inicio, int meio, int fim)
     free(vetor_aux);
 }
 
-void mergeSort(Lista* vetor, int inicio, int fim) 
+void mergeSort(int inicio, Nodo* pinicio, int fim) 
 {
     extern int contagem;
 
-    contagem++;
-    if(inicio<fim-1)
+    contagem+=2;
+    if(inicio < (fim-1))
      {
-        contagem+=3;
+        contagem+=5;
         int meio = (inicio+fim)/2;
+        Nodo* pmeio = encontrar_ponteiro(pinicio, meio-inicio);
+
         //Divide ao meio da esquerda
-        mergeSort(vetor, inicio, meio); //Inicio at� meio-1 = esquerda
+        mergeSort(inicio, pinicio, meio); //Inicio ate meio-1 = esquerda
         contagem++;
 
         //Divide ao meio da direita
-        mergeSort(vetor, meio, fim); //Meio at� fim = direita
+        mergeSort(meio, pmeio, fim); //Meio ate fim = direita
         contagem++;
 
         //Junta os meios
-        mergeArray(vetor, inicio, meio, fim);
+        mergeArray(inicio, pinicio, meio, pmeio, fim);
         contagem++;
     }
 }
