@@ -125,3 +125,21 @@ void libera_lista(Lista* li)
         free(li); contagem++;
     }
 }
+
+Nodo* encontrar_ponteiro(struct elemento* no, int distancia){
+
+    extern int contagem;
+    
+    contagem+=2;
+    int i=0;
+    Nodo* achar = no;
+
+    while((i < distancia) && (achar->prox != NULL)){
+        contagem+=5;
+        i++;
+        achar = achar->prox;
+    }
+    contagem+=2; // ultima comparacao
+
+    return achar;
+}

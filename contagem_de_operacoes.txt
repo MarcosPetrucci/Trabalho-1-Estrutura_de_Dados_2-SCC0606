@@ -76,3 +76,47 @@ Contagem das operacoes para a seguinte matriz de entrada:
 Total de operacoes: 136611
 Operacoes devido a busca recursiva: 10661
 Operacoes devido ao merge sort: 124473
+
+Contagem das operacoes para a seguinte matriz de entrada:
+0 0 0 0 0 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 
+0 0 0 0 1 1 0 0 0 0 
+0 0 0 0 1 1 0 0 0 0 
+0 0 1 1 1 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 
+Total de operacoes: 2380
+Operacoes devido a busca recursiva: 929
+Operacoes devido ao merge sort: 943
+
+Contagem das operacoes para a seguinte matriz de entrada:
+0 0 0 1 0 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 
+0 0 0 0 1 1 0 0 0 0 
+0 0 0 0 1 1 0 0 0 0 
+0 0 1 1 1 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 1 
+Total de operacoes: 3597
+Operacoes devido a busca recursiva: 1370
+Operacoes devido ao merge sort: 1584
+
+Contagem das operacoes para a seguinte matriz de entrada:
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 
+Total de operacoes: 32394
+Operacoes devido a busca recursiva: 10661
+Operacoes devido ao merge sort: 20254

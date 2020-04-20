@@ -33,10 +33,11 @@ int insere_lista(Lista* li, Tipo_Dado dt);    //Insere, no começo da lista, um 
 Nodo* consulta_lista_pos(Lista* li, int pos); //Consulta a posição de um determinado nodo na lista
 void imprime_lista(Lista* li, int count);     //Imprime os resultados obtidos, total e nodos modificados
 void libera_lista(Lista* li);                 //Libera, adequadamente, os nodos dinâmicamente alocados
+Nodo* encontrar_ponteiro(struct elemento* no, int distancia);   //Retorna um ponteiro a apartir do ponteiro forncido
 //------------------------------- MERGE SORT -------------------------------//
 
-void mergeSort(Lista* vetor, int inicio, int fim); //Faz as sucessivas divisões do merge sort
-void mergeArray(Lista* vetor, int inicio, int meio, int fim); //Realiza a ordenação nos pequenos arrays derivados
+void mergeSort(int inicio, Nodo* pinicio, int fim); //Faz as sucessivas divisões do merge sort
+void mergeArray(int inicio, Nodo* pinicio, int meio, Nodo* pmeio, int fim); //Realiza a ordenação nos pequenos arrays derivados
 
 
 //----------------------------- BUSCA RECURSIVA -----------------------------//
