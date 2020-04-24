@@ -63,6 +63,9 @@ int main()
     imprime_lista(li, count);
 
     contagem++;
+    imprime_lista_file(li, count);
+
+    contagem++;
     libera_lista(li);
 
     salvar_contagem(contagem, contagemBusca, contagemMerge);
