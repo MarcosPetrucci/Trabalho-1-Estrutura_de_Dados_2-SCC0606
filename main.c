@@ -4,8 +4,6 @@
 
 #include "prototipos.h"
 
-#define ARRAYSIZE 10
-
 //------CONTAGEM DE OPERACOES------//
 
 int contagem = 0;
@@ -22,27 +20,26 @@ int main()
     contagem += 2; // chamada da funcao e atribuicao de valor para a variavel M
     M = receber_matriz(&L, &C, &x0, &y0); //PARAMETROS: numero de lin, numero de col, x inicial, y inicial
 
-    // as operacoes relativas ao envio da contagem de operacoes do algoritmo
-    // para um arquivo separado nao serao consideradas na contagem
-    salvar_matriz(M,L,C);
+    contagem++;
+    salvar_matriz(M,L,C);   // envia para o arquivo saida_dados.txt a matriz inicial
 
     contagem++;
     if(M == NULL){
         return 0;
     }
 
-/***************** so para testar *********************************************************/
-    int i,j;
+/************************************** TESTE **********************************************/
+    // int i,j;
 
-    printf("L = %d\n\nC = %d\n\nx0 = %d\n\ny0 = %d\n\n", L, C, x0, y0); //Imprime L, C, x0 e y0
+    // printf("L = %d\n\nC = %d\n\nx0 = %d\n\ny0 = %d\n\n", L, C, x0, y0); //Imprime L, C, x0 e y0
 
-    for(i=0; i<L; i++){
-        for(j=0; j<C; j++){
-            printf("%d ",M[i][j]);
-        }
-        printf("\n");
-    }
-    printf("\n");
+    // for(i=0; i<L; i++){
+    //     for(j=0; j<C; j++){
+    //         printf("%d ",M[i][j]);
+    //     }
+    //     printf("\n");
+    // }
+    // printf("\n");
 
 /*******************************************************************************************/
 
@@ -51,7 +48,7 @@ int main()
 
     contagem += 2;
     contagemBusca = contagem;
-    li = floodFill(M,x0,y0,L,C,&count); // PARAMETROS: matriz, x inicial, y inicial, numero de lin, numero de col,
+    li = floodFill(M,x0,y0,L,C,&count); // PARAMETROS: matriz, x inicial, y inicial, numero de lin, numero de col, numero de elementos modificados
     contagemBusca = contagem - contagemBusca;
 
     contagem++;
@@ -60,19 +57,23 @@ int main()
     contagemMerge = contagem - contagemMerge;
 
     contagem++;
-    imprime_lista(li, count);
+    imprime_lista(li, count);   // retorna, em tela, o numero de posicoes do mesmo
+                                // conectadas, a partir da posicao inicial, seguido de suas
+                                // coordenadas
 
     contagem++;
-    imprime_lista_file(li, count);
+    imprime_lista_file(li, count);  // envia a saida do programa para o arquivo saida_dados.txt
 
     contagem++;
     libera_lista(li);
 
-    salvar_contagem(contagem, contagemBusca, contagemMerge);
+    contagem++;
+    salvar_contagem(contagem, contagemBusca, contagemMerge); // envia a contagem de operacoes para
+                                                             // o arquivo saida_dados.txt
 
-    printf("\nOPERACOES:%d\n",contagem);
-    printf("OPERACOES DA BUSCA RECURSIVA:%d\n",contagemBusca);
-    printf("OPERACOES DO MERGE SORT:%d\n",contagemMerge);
+    // printf("\nOPERACOES:%d\n",contagem);
+    // printf("OPERACOES DA BUSCA RECURSIVA:%d\n",contagemBusca);
+    // printf("OPERACOES DO MERGE SORT:%d\n",contagemMerge);
 
     return 0;
 }

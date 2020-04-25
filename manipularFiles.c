@@ -83,24 +83,36 @@ int** receber_matriz(int* L, int* C, int* x0, int* y0)
 
 void salvar_matriz(int** M, int L, int C){
 
+    extern int contagem;
+
     FILE *output;
     int i,j;
 
-    output =fopen("contagem_de_operacoes.txt","a+");
+    contagem++;
+    output =fopen("saida_dados.txt","a+");
 
+    contagem++;
     if(output == NULL){
+        contagem++;
         printf("\nERRO NA ABERTURA DO ARQUIVO\n");
         return;
     }
 
-    fprintf(output,"\nContagem das operacoes para a seguinte matriz de entrada:\n");
+    contagem++;
+    fprintf(output,"\nDados de saída e contagem das operacoes para a seguinte matriz de entrada:\n\n");
+
+    contagem+=2;
     for(i=0; i<L; i++){
+        contagem+=3;
+        contagem+=2;
         for(j=0; j<C; j++){
+            contagem+=4;
             fprintf(output,"%d ",M[i][j]);
         }
+        contagem++;
         fprintf(output,"\n");
     }
-
+    contagem++;
     fclose(output);
 
 }
@@ -109,14 +121,14 @@ void salvar_contagem(int total, int busca, int merge){
 
     FILE *output;
 
-    output =fopen("contagem_de_operacoes.txt","a+");
+    output =fopen("saida_dados.txt","a+");
 
     if(output == NULL){
         printf("\nERRO NA ABERTURA DO ARQUIVO\n");
         return;
     }
 
-    fprintf(output,"Total de operacoes: %d\n",total);
+    fprintf(output,"\nTotal de operacoes: %d\n",total);
     fprintf(output,"Operacoes devido a busca recursiva: %d\n",busca);
     fprintf(output,"Operacoes devido ao merge sort: %d\n",merge);
 
@@ -134,7 +146,7 @@ void imprime_lista_file(Lista* li, int count)
         return;
 
     contagem++;
-    FILE* output = fopen("saida_dados.txt", "w");
+    FILE* output = fopen("saida_dados.txt", "a+");
 
     contagem++;
     if(output == NULL){
@@ -143,7 +155,7 @@ void imprime_lista_file(Lista* li, int count)
     }
 
     contagem++;
-    fprintf(output, "Total: %d\n",count);
+    fprintf(output, "\nTotal: %d\n",count);
 
     contagem++; // ultima comparacao
     while (no != NULL)
@@ -152,6 +164,6 @@ void imprime_lista_file(Lista* li, int count)
         fprintf(output, "%d %d\n",no->dado.x,no->dado.y);
         no = no->prox;
     }
-
+    contagem++;
     fclose(output);
 }
