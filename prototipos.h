@@ -28,16 +28,16 @@ typedef struct elemento Nodo;
 
 typedef struct elemento* Lista;
 
-Lista* cria_lista();                          //Cria (aloca) o início da  lista
-int insere_lista(Lista* li, Tipo_Dado dt);    //Insere, no começo da lista, um novo nodo
-Nodo* consulta_lista_pos(Lista* li, int pos); //Consulta a posição de um determinado nodo na lista
+Lista* cria_lista();                          //Cria (aloca) o inicio da  lista
+int insere_lista(Lista* li, Tipo_Dado dt);    //Insere, no comeco da lista, um novo nodo
+Nodo* consulta_lista_pos(Lista* li, int pos); //Consulta a posicao de um determinado nodo na lista
 void imprime_lista(Lista* li, int count);     //Imprime os resultados obtidos, total e nodos modificados
-void libera_lista(Lista* li);                 //Libera, adequadamente, os nodos dinâmicamente alocados
+void libera_lista(Lista* li);                 //Libera, adequadamente, os nodos dinamicamente alocados
 Nodo* encontrar_ponteiro(struct elemento* no, int distancia);   //Retorna um ponteiro a apartir do ponteiro forncido
 //------------------------------- MERGE SORT -------------------------------//
 
-void mergeSort(int inicio, Nodo* pinicio, int fim); //Faz as sucessivas divisões do merge sort
-void mergeArray(int inicio, Nodo* pinicio, int meio, Nodo* pmeio, int fim); //Realiza a ordenação nos pequenos arrays derivados
+void mergeSort(int inicio, Nodo* pinicio, int fim); //Faz as sucessivas divisoes do merge sort
+void mergeArray(int inicio, Nodo* pinicio, int meio, Nodo* pmeio, int fim); //Realiza a ordenacao nos pequenos arrays derivados
 
 
 //----------------------------- BUSCA RECURSIVA -----------------------------//
