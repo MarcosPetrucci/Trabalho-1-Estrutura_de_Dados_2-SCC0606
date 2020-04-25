@@ -28,16 +28,16 @@ typedef struct elemento Nodo;
 
 typedef struct elemento* Lista;
 
-Lista* cria_lista();                          //Cria (aloca) o in√≠cio da  lista
-int insere_lista(Lista* li, Tipo_Dado dt);    //Insere, no come√ßo da lista, um novo nodo
-Nodo* consulta_lista_pos(Lista* li, int pos); //Consulta a posi√ß√£o de um determinado nodo na lista
+Lista* cria_lista();                          //Cria (aloca) o inÌcio da  lista
+int insere_lista(Lista* li, Tipo_Dado dt);    //Insere, no comeÁo da lista, um novo nodo
+Nodo* consulta_lista_pos(Lista* li, int pos); //Consulta a posiÁ„o de um determinado nodo na lista
 void imprime_lista(Lista* li, int count);     //Imprime os resultados obtidos, total e nodos modificados
-void libera_lista(Lista* li);                 //Libera, adequadamente, os nodos din√¢micamente alocados
+void libera_lista(Lista* li);                 //Libera, adequadamente, os nodos din‚micamente alocados
 Nodo* encontrar_ponteiro(struct elemento* no, int distancia);   //Retorna um ponteiro a apartir do ponteiro forncido
 //------------------------------- MERGE SORT -------------------------------//
 
-void mergeSort(int inicio, Nodo* pinicio, int fim); //Faz as sucessivas divis√µes do merge sort
-void mergeArray(int inicio, Nodo* pinicio, int meio, Nodo* pmeio, int fim); //Realiza a ordena√ß√£o nos pequenos arrays derivados
+void mergeSort(int inicio, Nodo* pinicio, int fim); //Faz as sucessivas divisıes do merge sort
+void mergeArray(int inicio, Nodo* pinicio, int meio, Nodo* pmeio, int fim); //Realiza a ordenaÁ„o nos pequenos arrays derivados
 
 
 //----------------------------- BUSCA RECURSIVA -----------------------------//
@@ -49,3 +49,4 @@ void buscaRecursiva(int **M, int x0, int y0, int xSize, int ySize, int ref); //R
 int** receber_matriz(int* L, int* C, int* x0, int* y0); // Recebe dados de entrada de um arquivo .txt
 void salvar_matriz(int** M, int L, int C);  // Salva a matriz de entrada em um arquivo .txt
 void salvar_contagem(int total, int busca, int merge); // Salva a contagem de operacoes em um arquivo .txt
+void imprime_lista_file(Lista* li, int count);

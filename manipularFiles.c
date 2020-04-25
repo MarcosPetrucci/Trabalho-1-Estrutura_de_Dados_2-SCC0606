@@ -106,7 +106,7 @@ void salvar_matriz(int** M, int L, int C){
 }
 
 void salvar_contagem(int total, int busca, int merge){
-    
+
     FILE *output;
 
     output =fopen("contagem_de_operacoes.txt","a+");
@@ -119,6 +119,39 @@ void salvar_contagem(int total, int busca, int merge){
     fprintf(output,"Total de operacoes: %d\n",total);
     fprintf(output,"Operacoes devido a busca recursiva: %d\n",busca);
     fprintf(output,"Operacoes devido ao merge sort: %d\n",merge);
+
+    fclose(output);
+}
+
+void imprime_lista_file(Lista* li, int count)
+{
+    extern int contagem;
+
+    Nodo* no = *li; contagem++;
+
+    contagem++;
+    if (li == NULL)
+        return;
+
+    contagem++;
+    FILE* output = fopen("saida_dados.txt", "w");
+
+    contagem++;
+    if(output == NULL){
+        printf("\nERRO NA ABERTURA DO ARQUIVO\n");
+        return;
+    }
+
+    contagem++;
+    fprintf(output, "Total: %d\n",count);
+
+    contagem++; // ultima comparacao
+    while (no != NULL)
+    {
+        contagem+=3;
+        fprintf(output, "%d %d\n",no->dado.x,no->dado.y);
+        no = no->prox;
+    }
 
     fclose(output);
 }
